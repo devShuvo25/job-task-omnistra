@@ -1,38 +1,111 @@
 @import "tailwindcss";
 
-@theme {
-  /* Default Dark Mode Palette */
-  --color-background: #000000; /* Chargeflow's deep dark navy */
-  --color-foreground: #f8fafc;
-  --color-brand-primary: #0061ff;
-  --color-brand-soft: rgba(0, 97, 255, 0.1);
-  
-  --color-nav-border: rgba(255, 255, 255, 0.08);
-  --color-nav-bg: rgba(5, 11, 33, 0.8);
-  
-  --shadow-mega: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+/* 1. Design Tokens & Variables */
+:root {
+  --blue-500: #3448ff;
+  --blue-600: #2b3cd5;
+  --green-500: #c3f967;
+  --darkmode--surface: #000000;
+  --darkmode--onsurface: #ffffff;
+  --darkmode--onsurface-subtle: #97a3b6;
+  --angle: 0deg;
 }
 
-@layer base {
-  html {
-    /* Ensures the scrollbar and system UI match dark mode */
-    color-scheme: dark;
-    -webkit-font-smoothing: antialiased;
-  }
+/* 2. Typography - Helvetica Now */
+@font-face {
+  font-family: 'Helvetica Now';
+  src: url('https://cdn.prod.website-files.com/66eafae/66eb260_HelveticaNow400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* 3. Custom Property Registration */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: true;
+}
+
+/* 4. Global Base Styles */
+body {
+  background-color: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Helvetica Now', 'Inter', sans-serif;
+  /* Exact scaling from Chargeflow's inspector */
+  font-size: 1.11111vw;
+}
+
+@media screen and (max-width: 767px) {
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
-    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
   }
 }
 
-@layer components {
-  .nav-glass-dark {
-    @apply sticky top-0 z-50 transition-all duration-500 border-b;
-  }
+/* 5. Sonar Trace Animation */
+/* Optimized for 10s duration with a micro-pivot (0.2%) to prevent sticking */
+@keyframes sonar-rotate {
+  0% { --angle: 0deg; }
   
-  /* State when scrolled */
-  .nav-scrolled {
-    @apply bg-nav-bg backdrop-blur-xl border-nav-border shadow-mega;
-  }
+  /* Reach bottom at 4.99s */
+  49.9% { --angle: 180deg; } 
+  
+  /* Pivot for only 0.02s total */
+  50.1% { --angle: 180deg; } 
+  
+  /* Return to top */
+  100% { --angle: 360deg; }
+}
+
+.c-sonar-trace {
+  --c1: var(--blue-500);
+  --c2: transparent;
+  --glow: #ffffff;
+
+  /* Spread: 80 degrees for visibility at slow speeds */
+  background: conic-gradient(
+    from var(--angle), 
+    var(--c2) 140deg, 
+    var(--c1) 170deg, 
+    var(--glow) 180deg, 
+    var(--c1) 190deg, 
+    var(--c2) 220deg
+  );
+
+  /* Using a smoother ease-in-out-sine to keep velocity consistent */
+  animation: sonar-rotate 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+/* 6. Ultra-Slow Marquee */
+@keyframes marquee-ultra-slow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee-ultra-slow 200s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
+/* 7. High-Fidelity Interaction Utilities */
+.active-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active-scale:active {
+  transform: scale(0.97);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
