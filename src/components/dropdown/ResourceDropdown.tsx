@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Bell, BarChart3, Puzzle, ArrowRight } from 'lucide-react';
+import { Shield, Zap, Bell, BarChart3, ArrowRight } from 'lucide-react';
 
 const DROPDOWN_ITEMS = [
   {

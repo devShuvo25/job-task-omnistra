@@ -2,7 +2,7 @@
 
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowUpRight, Play, Shield, Zap, Bell, BarChart3, Puzzle } from 'lucide-react';
+import { ArrowUpRight, Shield, Zap, Bell, BarChart3, Puzzle } from 'lucide-react';
 
 const FEATURES = [
   {
@@ -26,7 +26,7 @@ const FEATURES = [
   {
     title: "Insights",
     badge: "FREE",
-    desc: "Get a bird's-eye view into your payments and chargebacks, all in a single, powerful dashboard.",
+    desc: "Get a bird&apos;s-eye view into your payments and chargebacks, all in a single, powerful dashboard.",
     icon: <BarChart3 className="w-full h-full opacity-20" />
   },
   {
@@ -67,7 +67,7 @@ export default function HeroBanner() {
             <span className="text-blue-500">Automagically.</span>
           </h1>
           <p className="text-xl text-[#97a3b6] max-w-2xl leading-relaxed">
-            The world's most advanced chargeback automation platform. Join 5,000+ brands recovering millions in lost revenue without lifting a finger.
+            The world&apos;s most advanced chargeback automation platform. Join 5,000+ brands recovering millions in lost revenue without lifting a finger.
           </p>
         </div>
       </div>

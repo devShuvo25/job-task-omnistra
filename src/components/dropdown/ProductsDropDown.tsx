@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const dropdownItems = [
   {
@@ -38,18 +37,14 @@ const dropdownItems = [
 
 export default function ProductDropdown() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[95vw] max-w-[1300px] rounded-[2.5rem] bg-[#050505] border border-white/10 backdrop-blur-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden p-3"
+    <div
+      className="w-[75vw] max-w-[1300px] rounded-[2.5rem] bg-[#050505]/95 shadow-xl border border-white/10 backdrop-blur-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden p-3"
     >
       <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
         {dropdownItems.map((item, index) => (
           <div
             key={index}
-            className="group relative h-[380px] p-8 rounded-[2rem] bg-[#0d0d0d] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col"
+            className="group relative h-[230px] p-8 rounded-[2rem] bg-[#0d0d0d] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col"
           >
             {/* 1. Header Logic (Title & Badge) */}
             <div className="relative z-20 flex items-center gap-2 mb-4">
@@ -85,6 +80,6 @@ export default function ProductDropdown() {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }
