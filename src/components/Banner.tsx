@@ -3,17 +3,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const integrations = [
-  { id: 1, x: -320, y: -40, size: 42, delay: 0.1 }, // Stripe-like
-  { id: 2, x: -240, y: 60, size: 32, delay: 0.3 },
-  { id: 3, x: -180, y: -80, size: 36, delay: 0.5 },
-  { id: 4, x: 180, y: 70, size: 30, delay: 0.2 },
-  { id: 5, x: 260, y: -50, size: 40, delay: 0.4 },
-  { id: 6, x: 340, y: 20, size: 38, delay: 0.6 },
+  { id: 1, name: 'S', x: -320, y: -40, size: 50, delay: 0.1 }, 
+  { id: 2, name: 'W', x: -240, y: 60, size: 38, delay: 0.3 },
+  { id: 3, name: 'P', x: -180, y: -80, size: 44, delay: 0.5 },
+  { id: 4, name: 'A', x: 180, y: 70, size: 36, delay: 0.2 },
+  { id: 5, name: 'M', x: 260, y: -50, size: 48, delay: 0.4 },
+  { id: 6, name: 'B', x: 340, y: 20, size: 46, delay: 0.6 },
 ];
 
 const GraphicalBanner = () => {
   return (
-    <section className="relative w-full min-h-[700px] bg-[#000] flex flex-col items-center justify-center overflow-hidden px-6 pt-20">
+    <section className=" mt-10 relative w-full min-h-[700px] bg-[#000] flex flex-col items-center justify-center overflow-hidden px-6 pt-20">
       {/* 1. Global Diamond Grid Background */}
       <div 
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -49,13 +49,13 @@ const GraphicalBanner = () => {
         
         {/* Converging Dotted Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 300">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <path
               key={i}
               d={`M 0 ${37.5 * i} Q 500 150 1000 ${37.5 * i}`}
               fill="none"
               stroke="white"
-              strokeWidth="0.5"
+              strokeWidth="2"
               strokeDasharray="4 4"
             />
           ))}
@@ -105,8 +105,10 @@ const GraphicalBanner = () => {
               height: node.size
             }}
           >
-            {/* Logo Placeholder */}
-            <div className="w-[60%] h-[60%] bg-gray-200 rounded-sm" />
+            {/* Letter Content */}
+            <span className="text-black font-black text-sm select-none">
+              {node.name}
+            </span>
           </motion.div>
         ))}
       </div>

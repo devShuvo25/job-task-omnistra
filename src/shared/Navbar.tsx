@@ -3,10 +3,11 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Menu } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import ProductDropdwon from '@/components/dropdown/ProductsDropDown';
 import CustomerDropdown from '@/components/dropdown/CustomerDropdown';
-import IntegrationsDropdown, { IntegrationDropdown } from '@/components/dropdown/IntegrationDropdown';
+import IntegrationsDropdown from '@/components/dropdown/IntegrationDropdown';
+import Link from 'next/link';
 // Ensure this path matches where you saved the CaseStudyDropdown component
 
 export default function ChargeflowNavbar() {
@@ -17,7 +18,7 @@ export default function ChargeflowNavbar() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = ['PRODUCT', 'CUSTOMERS', 'PRICING', 'INTEGRATIONS', 'RESOURCES', 'COMPANY'];
+  const navLinks  = ['PRODUCT', 'CUSTOMERS', 'PRICING', 'INTEGRATIONS', 'RESOURCES', 'COMPANY'];
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -86,6 +87,78 @@ export default function ChargeflowNavbar() {
 
   return (
     <>
+    <AnimatePresence>
+  {mobileMenuOpen && (
+    <motion.div
+      initial={{ y: "-100%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: "-100%", opacity: 0 }}
+      transition={{ type: "spring", damping: 25, stiffness: 120 }}
+      className="fixed inset-0 z-[1100] bg-black/90 backdrop-blur-2xl pointer-events-auto flex flex-col p-8 overflow-y-auto"
+    >
+      {/* 1. Header Section */}
+      <div className="flex justify-between items-center mb-10">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1.5">
+            <div className="w-full h-full bg-black rotate-45 rounded-sm" />
+          </div>
+          <span className="text-xl font-bold tracking-tighter text-white">chargeflow</span>
+        </div>
+        <button 
+          onClick={() => setMobileMenuOpen(false)} 
+          className="text-white/70 hover:text-white p-2 transition-colors"
+        >
+          <X size={32} strokeWidth={1.5} />
+        </button>
+      </div>
+
+      {/* 2. Action Buttons */}
+      <div className="flex items-center gap-4 mb-12">
+        <button className="flex-1 text-[0.7rem] font-bold tracking-[0.1em] text-white flex items-center justify-center gap-1.5 uppercase border border-white/10 py-4 rounded-full">
+          SIGN IN <ArrowUpRight size={14} />
+        </button>
+        <button className="flex-[1.5] bg-[#3448ff] text-white py-4 rounded-full text-[0.7rem] font-black tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 uppercase">
+          SCHEDULE A DEMO <ArrowUpRight size={14} />
+        </button>
+      </div>
+
+      {/* 3. Navigation Links */}
+      <nav className="flex flex-col">
+        {navLinks.map((link, i) => (
+          <Link href={'/'} key={i} className="flex flex-col">
+            {/* Dotted Divider with endpoints */}
+            <div className="w-full h-px bg-white/10 flex items-center justify-between relative">
+               <div className="w-1.5 h-1.5 rounded-full bg-white/20 absolute left-0 -translate-x-1/2" />
+               <div className="w-1.5 h-1.5 rounded-full bg-white/20 absolute right-0 translate-x-1/2" />
+            </div>
+            
+            <button className="flex justify-between items-center py-7 text-left group">
+              <span className="text-[0.85rem] font-bold tracking-[0.2em] text-white/50 group-hover:text-white transition-all uppercase">
+                {link}
+              </span>
+              {(link) && (
+                <ChevronDown size={18} className="text-white/30" />
+              )}
+            </button>
+          </Link>
+        ))}
+
+        {/* Closing Divider */}
+        <div className="w-full h-[1px] bg-white/10 flex items-center justify-between relative">
+           <div className="w-1.5 h-1.5 rounded-full bg-white/20 absolute left-0 -translate-x-1/2" />
+           <div className="w-1.5 h-1.5 rounded-full bg-white/20 absolute right-0 translate-x-1/2" />
+        </div>
+      </nav>
+
+      {/* 4. Footer info (Optional but adds to the look) */}
+      <div className="mt-auto pt-10 text-center">
+        <p className="text-[0.6rem] text-white/20 tracking-[0.3em] font-bold uppercase">
+          Chargeflow © 2026
+        </p>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
       <AnimatePresence>
         {(hoveredLink || mobileMenuOpen) && (
           <motion.div
