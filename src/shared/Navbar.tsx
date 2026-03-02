@@ -9,7 +9,6 @@ import CustomerDropdown from '@/components/dropdown/CustomerDropdown';
 import IntegrationsDropdown from '@/components/dropdown/IntegrationDropdown';
 import Link from 'next/link';
 import { navLinks } from '@/constant/navabar.data';
-import { label } from 'framer-motion/client';
 import ResourcesDropdown from '@/components/dropdown/ResourceDropdown';
 import CompanyDropdown from '@/components/dropdown/CompanyDropdown';
 // Ensure this path matches where you saved the CaseStudyDropdown component
@@ -188,7 +187,7 @@ export default function ChargeflowNavbar() {
           className="relative flex items-center justify-between w-full px-8 pointer-events-auto"
         >
           {/* Logo Section */}
-          <div className="flex items-center gap-[0.8em] cursor-pointer group shrink-0">
+          <Link href={'/'} className="flex items-center gap-[0.8em] cursor-pointer group shrink-0">
             <Layers/>
             
             <AnimatePresence>
@@ -204,7 +203,7 @@ export default function ChargeflowNavbar() {
                 </motion.span>
               )}
             </AnimatePresence>
-          </div>
+          </Link>
 
           {/* Desktop Links Section */}
           <div ref={linksContainerRef} className="hidden lg:flex items-center gap-[1.8em]">
