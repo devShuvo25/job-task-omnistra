@@ -1,6 +1,6 @@
 import { paymentsData } from "@/constant/Integration.data";
 import React from "react";
-import { PaymentCard } from "../Home/payment platform/PaymentCard";
+import { PaymentCard } from "./PaymentCard";
 
 export default function PyamentMethod() {
   return (
