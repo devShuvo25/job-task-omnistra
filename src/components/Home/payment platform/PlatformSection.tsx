@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Zap, ChevronDown, Plus } from "lucide-react";
-import PaymentPlatformCard from "./payment platform/PaymentPlatformCard";
-import PlatformHeader from "./payment platform/PlatfromHeader";
+import PaymentPlatformCard from "./PaymentPlatformCard";
+import PlatformHeader from "./PlatfromHeader";
 import { navItems, platforms } from "@/constant/Integration.data";
 
 const PlatformSection = () => {
@@ -23,14 +23,14 @@ const PlatformSection = () => {
       />
 
       {/* Hero Section */}
-      <section className="px-12 pt-20 pb-12">
+      <section className="px-5 pt-20 pb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-8">
           <Zap className="w-3 h-3 text-white" />
           <span className="text-[10px] uppercase font-bold tracking-widest text-white">
             Payments
           </span>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <h1 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase ">
             Payment Platforms.
           </h1>
@@ -42,7 +42,7 @@ const PlatformSection = () => {
       </section>
 
       {/* Integration Grid */}
-      <section className="px-12 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="px-5 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {visiblePlatforms?.map((platform) => (
           <PaymentPlatformCard key={platform?.id} platform={platform} />
         ))}

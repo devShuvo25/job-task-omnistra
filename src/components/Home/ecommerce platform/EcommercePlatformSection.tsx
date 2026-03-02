@@ -10,7 +10,7 @@ const EcommercePlatformSection = () => {
       {/* 1. Header Navigation */}
 
       {/* 2. Hero Section */}
-      <section className="px-12 pt-20 pb-12">
+      <section className="px-5  pb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-8">
           <Zap className="w-3 h-3 text-white" />
           <span className="text-[10px] uppercase font-bold tracking-widest text-white">
@@ -34,7 +34,7 @@ const EcommercePlatformSection = () => {
       </section>
 
       {/* 3. Integration Grid */}
-      <section className="px-12 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="px-5 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {platforms?.map((platform) => (
           <EcommeercePlatformCard key={platform?.id} item={platform} />
         ))}

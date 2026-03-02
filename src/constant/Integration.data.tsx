@@ -1,3 +1,4 @@
+import { IntegrationLogo } from "@/interface/integratioin";
 import { Cpu, CreditCard, Gem, MessageSquare } from "lucide-react";
 
 export const paymentsData = [
@@ -146,13 +147,13 @@ export const platforms = [
 export const supportPlatforms = [
   // --- Support & CRM Platforms (from image_4e7dee.png) ---
   { id: 1, name: "Gmail", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" },
-  { id: 2, name: "Gorgias", logo: "https://cdn.worldvectorlogo.com/logos/gorgias.svg" },
+  { id: 2, name: "Gorgias", logo: "https://pbs.twimg.com/profile_images/1728458499800055808/58znXl4Y_400x400.jpg" },
   { id: 3, name: "Intercom", logo: "https://cdn.worldvectorlogo.com/logos/intercom-2.svg" },
   { id: 4, name: "Zendesk", logo: "https://cdn.worldvectorlogo.com/logos/zendesk-1.svg" },
   { id: 5, name: "Help Scout", logo: "https://cdn.worldvectorlogo.com/logos/help-scout.svg" },
   { id: 6, name: "Freshdesk", logo: "https://cdn.worldvectorlogo.com/logos/freshdesk.svg" },
-  { id: 7, name: "Zoho", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Zoho_logo.svg" },
-  { id: 8, name: "LiveAgent", logo: "https://www.liveagent.com/wp-content/themes/liveagent/assets/images/logos/liveagent-orange.svg" },
+  { id: 7, name: "Zoho", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWZJmnJLhKU9o1EpO_ZRaVXeNdIXCfJw6JRw&s" },
+  { id: 8, name: "LiveAgent", logo: "https://images.softwaresuggest.com/software_logo/liveagent-20250804225216.png?auto=compress,format" },
   { id: 9, name: "HubSpot", logo: "https://cdn.worldvectorlogo.com/logos/hubspot.svg" },
 ];
 // data for payment platform header nav
@@ -161,4 +162,87 @@ export const navItems = [
   { id: 'platforms', label: 'Platforms', icon: Gem },
   { id: 'subscription', label: 'Subscription', icon: CreditCard },
   { id: 'communication', label: 'Customer Communication', icon: MessageSquare },
+];
+
+export const integrations: IntegrationLogo[] = [
+  {
+    id: 1,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRus-wnHkWv5kKT4QhByRS1z8ZQThGOiGlXrw&s",
+    alt: "NICE",
+    position: "top-[12%] left-[8%] md:top-[10%] md:left-[10%]",
+    size: "lg",
+    delay: 0,
+    moveX: 20,
+    moveY: 20,
+  },
+  {
+    id: 5,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8XBSaxe62HkBvAT6ec5p19UU8zEzQ6cIW0Q&s",
+    alt: "Latitude",
+    position: "top-[12%] right-[8%] md:top-[12%] md:right-[40%]",
+    size: "md",
+    delay: 0.02,
+    moveX: -20,
+    moveY: 20,
+  },
+  {
+    id: 2,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJJCVkJNnswA53ox7-D4UZHfz3G_zmEIpcCw&s",
+    alt: "Energy",
+    position: "top-[35%] left-[4%] md:top-[25%] md:left-[18%]",
+    size: "md",
+    delay: 0.04,
+    moveX: 25,
+    moveY: 5,
+  },
+  {
+    id: 7,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQWyXpY7BrHzjvTligviVPVNQ7wqxq0o5A5Q&s",
+    alt: "Waves",
+    position: "top-[35%] right-[4%] md:top-[30%] md:right-[18%]",
+    size: "md",
+    delay: 0.04,
+    moveX: -25,
+    moveY: 5,
+  },
+  {
+    id: 4,
+    src: "https://img.freepik.com/free-vector/p-gradient-creative-logo-design-vector_474888-3916.jpg?semt=ais_rp_progressive&w=740&q=80",
+    alt: "Partner",
+    position: "bottom-[20%] left-[8%] md:bottom-[15%] md:left-[20%]",
+    size: "lg",
+    delay: 0.06,
+    moveX: 20,
+    moveY: -20,
+  },
+  {
+    id: 8,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd2CUk9EcREGYjoCQ42a27mj1SMUgBbw2zzQ&s",
+    alt: "Star",
+    position: "bottom-[20%] right-[8%] md:bottom-[20%] md:right-[22%]",
+    size: "lg",
+    delay: 0.06,
+    moveX: -20,
+    moveY: -20,
+  },
+  {
+    id: 3,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDDkZkq0DdzmslDyv85Hf1mZNONqrEeB1FWg&s",
+    alt: "Salesforce",
+    position: "top-[50%] left-[12%] hidden md:flex md:left-[25%]",
+    size: "lg",
+    delay: 0.05,
+    moveX: 15,
+    moveY: 0,
+  },
+  {
+    id: 6,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbauY_njB-p9AZ4mAqh00F-EZ3fEmuBoooVg&s",
+    alt: "Fiserv",
+    position: "bottom-[10%] left-[45%] hidden md:flex",
+    size: "lg",
+    delay: 0.05,
+    moveX: 0,
+    moveY: -30,
+  },
 ];
