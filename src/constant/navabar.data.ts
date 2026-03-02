@@ -21,3 +21,12 @@ export const integrationsData = [
     color: "#96588A"
   }
 ];
+
+export const navLinks = [
+  { label: 'PRODUCT', path: '/product' },
+  { label: 'CUSTOMERS', path: '/customers' },
+  { label: 'PRICING', path: '/pricing' },
+  { label: 'INTEGRATIONS', path: '/#integrations' },
+  { label: 'RESOURCES', path: '/resources' },
+  { label: 'COMPANY', path: '/company' },
+];

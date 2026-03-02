@@ -1,6 +1,6 @@
-import { paymentsData } from '@/constant/Integration.data'
-import React from 'react'
-import { PaymentCard } from './PaymentCard'
+import { paymentsData } from "@/constant/Integration.data";
+import React from "react";
+import { PaymentCard } from "./payment platform/PaymentCard";
 
 export default function PyamentMethod() {
   return (
@@ -14,5 +14,5 @@ export default function PyamentMethod() {
         ))}
       </div>
     </div>
-  )
+  );
 }

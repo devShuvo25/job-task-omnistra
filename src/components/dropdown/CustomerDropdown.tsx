@@ -13,7 +13,7 @@ const metrics = [
 
 export default function CustomerDropdown() {
   return (
-    <div className="w-[75vw] max-w-[1300px] h-[230px] bg-[#050505]/95 backdrop-blur-2xl border border-white/10 p-3 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+    <div className="w-[70vw] max-w-[1300px] h-[230px] bg-[#050505]/95 backdrop-blur-2xl border border-white/10 p-3 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
       <div className="h-full">
         <div className="grid grid-cols-12 gap-3 h-full">
           

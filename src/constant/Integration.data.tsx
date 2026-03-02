@@ -1,3 +1,5 @@
+import { Cpu, CreditCard, Gem, MessageSquare } from "lucide-react";
+
 export const paymentsData = [
   {
     app: "Stripe App",
@@ -46,4 +48,117 @@ export const paymentsData = [
       </svg>
     )
   }
+];
+
+// Data structure based on the platform grid
+export const platforms = [
+  { 
+    id: 1, 
+    name: "Shopify", 
+    logo: "https://e7.pngegg.com/pngimages/833/276/png-clipart-e-commerce-shopify-logo-web-design-magento-shopping-cart-grass-business-thumbnail.png",
+    desc: "A leading all-in-one commerce platform to start, run, and grow a business."
+  },
+  { 
+    id: 2, 
+    name: "WooCommerce", 
+    logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg",
+    desc: "Open-source eCommerce plugin for WordPress designed for online merchants."
+  },
+  { 
+    id: 3, 
+    name: "eBay", 
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg",
+    desc: "Global online auction and shopping marketplace for diverse goods."
+  },
+  { 
+    id: 4, 
+    name: "Magento", 
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKnFN0_ta2uAAEHtov0-pHJwPYCgo4u3JXKw&s",
+    desc: "Flexible open-source platform with powerful tools for enterprise eCommerce."
+  },
+  { 
+    id: 5, 
+    name: "BigCommerce", 
+    logo: "https://cdn.worldvectorlogo.com/logos/bigcommerce-1.svg",
+    desc: "Scalable SaaS platform providing solutions for fast-growing businesses."
+  },
+  { 
+    id: 6, 
+    name: "Wix", 
+    logo: "https://img.freepik.com/premium-vector/wix-logo-wix-letter-wix-letter-logo-design-initials-wix-logo-linked-with-circle-uppercase-monogram-logo-wix-typography-technology-business-real-estate-brand_229120-70812.jpg?semt=ais_user_personalization&w=740&q=80",
+    desc: "Cloud-based development platform for building professional websites."
+  },
+  { 
+    id: 7, 
+    name: "Webflow", 
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBZcZtJ0bhxgYq5MRaFx5HDwG5cRnPB36jzg&s",
+    desc: "Visual design tool for professional site building with clean code."
+  },
+  { 
+    id: 8, 
+    name: "Weebly eCommerce", 
+    logo: "https://cdn.worldvectorlogo.com/logos/weebly-1.svg",
+    desc: "Intuitive drag-and-drop website builder for small online shops."
+  },
+  { 
+    id: 9, 
+    name: "Salesforce Commerce Cloud", 
+    logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+    desc: "Cloud commerce solution delivering personalized shopping experiences."
+  },
+  { 
+    id: 10, 
+    name: "Squarespace", 
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxsYCZzFrGJpgmxW_aDX1Z97hsuX-PvyVwjQ&s",
+    desc: "Premium website templates and design tools for modern businesses."
+  },
+  { 
+    id: 11, 
+    name: "Etsy", 
+    logo: "https://icon2.cleanpng.com/20180805/vvr/kisspng-logo-brand-name-com-product-design-william-davies-meng-web-professional-5b67865e8a11d0.8643999715335112625655.jpg",
+    desc: "Global marketplace focused on unique, creative, and handmade goods."
+  },
+  { 
+    id: 12, 
+    name: "PrestaShop", 
+    logo: "https://cdn.worldvectorlogo.com/logos/prestashop.svg",
+    desc: "Efficient open-source e-commerce solution used by global retailers."
+  },
+  { 
+    id: 13, 
+    name: "Volusion", 
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRZcahhHNBvqN3tTwg72NxRhExvm__BfaQQ&s",
+    desc: "All-in-one platform for inventory, payment, and store management."
+  },
+  { 
+    id: 14, 
+    name: "Wix Stores", 
+    logo: "https://static.wixstatic.com/media/22e53e_a53027e61c334a428ee8fd64dd776792~mv2.png",
+    desc: "Specialized eCommerce tools within the Wix website ecosystem."
+  },
+  { 
+    id: 15, 
+    name: "OpenCart", 
+    logo: "https://cdn.worldvectorlogo.com/logos/opencart.svg",
+    desc: "Free, customizable open-source platform for online store management."
+  },
+];
+export const supportPlatforms = [
+  // --- Support & CRM Platforms (from image_4e7dee.png) ---
+  { id: 1, name: "Gmail", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" },
+  { id: 2, name: "Gorgias", logo: "https://cdn.worldvectorlogo.com/logos/gorgias.svg" },
+  { id: 3, name: "Intercom", logo: "https://cdn.worldvectorlogo.com/logos/intercom-2.svg" },
+  { id: 4, name: "Zendesk", logo: "https://cdn.worldvectorlogo.com/logos/zendesk-1.svg" },
+  { id: 5, name: "Help Scout", logo: "https://cdn.worldvectorlogo.com/logos/help-scout.svg" },
+  { id: 6, name: "Freshdesk", logo: "https://cdn.worldvectorlogo.com/logos/freshdesk.svg" },
+  { id: 7, name: "Zoho", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Zoho_logo.svg" },
+  { id: 8, name: "LiveAgent", logo: "https://www.liveagent.com/wp-content/themes/liveagent/assets/images/logos/liveagent-orange.svg" },
+  { id: 9, name: "HubSpot", logo: "https://cdn.worldvectorlogo.com/logos/hubspot.svg" },
+];
+// data for payment platform header nav
+export const navItems = [
+  { id: 'processors', label: 'Payment Processors', icon: Cpu },
+  { id: 'platforms', label: 'Platforms', icon: Gem },
+  { id: 'subscription', label: 'Subscription', icon: CreditCard },
+  { id: 'communication', label: 'Customer Communication', icon: MessageSquare },
 ];

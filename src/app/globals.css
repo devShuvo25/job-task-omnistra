@@ -109,3 +109,22 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+@layer components {
+  .logo-card {
+    @apply w-16 h-16 md:w-20 md:h-20 bg-white rounded-xl shadow-lg flex items-center justify-center p-4 transition-transform duration-500 hover:scale-110;
+    box-shadow: 0 10px 30px rgba(0, 40, 150, 0.06);
+  }
+
+  .logo-card img {
+    @apply max-w-full h-auto grayscale hover:grayscale-0 transition-all;
+  }
+}
+
+/* Optional Floating Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-slow { animation: float 6s ease-in-out infinite; }
+.animate-float-fast { animation: float 4s ease-in-out infinite; }

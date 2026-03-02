@@ -17,7 +17,7 @@ interface PlatformHeaderProps {
 
 const PlatformHeader = ({ navItems, activeTab, setActiveTab }: PlatformHeaderProps) => {
   return (
-    <header className="w-full bg-black border-b border-white/5 py-4 md:py-6 px-4 md:px-8 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
+    <header className="w-full bg-black border-b border-white/5 py-4 md:py-6 px-10 md:px-12 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
       
       {/* 1. Search Bar - Responsive width */}
       <div className="flex items-center gap-3 group flex-1 mr-4">

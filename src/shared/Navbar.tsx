@@ -3,11 +3,15 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Gamepad, Layers, Menu, X } from 'lucide-react';
 import ProductDropdwon from '@/components/dropdown/ProductsDropDown';
 import CustomerDropdown from '@/components/dropdown/CustomerDropdown';
 import IntegrationsDropdown from '@/components/dropdown/IntegrationDropdown';
 import Link from 'next/link';
+import { navLinks } from '@/constant/navabar.data';
+import { label } from 'framer-motion/client';
+import ResourcesDropdown from '@/components/dropdown/ResourceDropdown';
+import CompanyDropdown from '@/components/dropdown/CompanyDropdown';
 // Ensure this path matches where you saved the CaseStudyDropdown component
 
 export default function ChargeflowNavbar() {
@@ -18,7 +22,7 @@ export default function ChargeflowNavbar() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks  = ['PRODUCT', 'CUSTOMERS', 'PRICING', 'INTEGRATIONS', 'RESOURCES', 'COMPANY'];
+
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -124,8 +128,8 @@ export default function ChargeflowNavbar() {
 
       {/* 3. Navigation Links */}
       <nav className="flex flex-col">
-        {navLinks.map((link, i) => (
-          <Link href={'/'} key={i} className="flex flex-col">
+        {navLinks?.map((link, index) => (
+          <Link href={link?.path} key={index} className="flex flex-col">
             {/* Dotted Divider with endpoints */}
             <div className="w-full h-px bg-white/10 flex items-center justify-between relative">
                <div className="w-1.5 h-1.5 rounded-full bg-white/20 absolute left-0 -translate-x-1/2" />
@@ -134,7 +138,7 @@ export default function ChargeflowNavbar() {
             
             <button className="flex justify-between items-center py-7 text-left group">
               <span className="text-[0.85rem] font-bold tracking-[0.2em] text-white/50 group-hover:text-white transition-all uppercase">
-                {link}
+                {link?.label}
               </span>
               {(link) && (
                 <ChevronDown size={18} className="text-white/30" />
@@ -177,32 +181,7 @@ export default function ChargeflowNavbar() {
         className="fixed top-0 left-0 right-0 z-[1000] flex flex-col items-center pointer-events-none font-['Helvetica_Now',_sans-serif]"
         style={{ fontSize: '1.11111vw' }}
       >
-        <AnimatePresence mode="sync">
-          {!isScrolled && (
-            <motion.div 
-              initial={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-              className="w-full bg-black border-b border-white/10 py-2.5 overflow-hidden select-none pointer-events-auto shrink-0"
-            >
-              <div className="animate-marquee-slow flex items-center">
-                {[...Array(10)].map((_, i) => (
-                  <div key={i} className="flex items-center gap-12 pr-12 shrink-0">
-                    <div className="flex items-center gap-6">
-                      <span className="text-[0.6em] font-black tracking-[0.25em] text-[#c3f967]">
-                        ANNOUNCING OUR $35M SERIES A FUNDING
-                      </span>
-                      <span className="text-[0.6em] font-black tracking-[0.25em] text-white">
-                        TO TAKE DOWN FRIENDLY FRAUD - READ MORE →
-                      </span>
-                    </div>
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
 
         <nav 
           ref={navRef} 
@@ -210,9 +189,8 @@ export default function ChargeflowNavbar() {
         >
           {/* Logo Section */}
           <div className="flex items-center gap-[0.8em] cursor-pointer group shrink-0">
-            <div className="w-[1.8em] h-[1.8em] bg-white rounded flex items-center justify-center p-[0.3em] transition-transform duration-500 group-hover:rotate-[15deg]">
-              <div className="w-full h-full bg-black rotate-45 rounded-sm" />
-            </div>
+            <Layers/>
+            
             <AnimatePresence>
               {!isScrolled && (
                 <motion.span 
@@ -230,64 +208,41 @@ export default function ChargeflowNavbar() {
 
           {/* Desktop Links Section */}
           <div ref={linksContainerRef} className="hidden lg:flex items-center gap-[1.8em]">
-            {navLinks.map((link) => (
-              <div 
-                key={link} 
+            {navLinks?.map((link, index) => (
+              <Link 
+                href={link?.path}
+                key={index} 
                 className=" px-2 cursor-pointer" 
-                onMouseEnter={() => setHoveredLink(link)}
+                onMouseEnter={() => setHoveredLink(link?.label)}
                 onMouseLeave={() => setHoveredLink(null)}
               >
                 <button className="cursor-pointer text-[0.6em] font-bold tracking-[0.15em] text-[#97a3b6] hover:text-white transition-colors duration-300 uppercase flex items-center gap-1">
-                  {link}
+                  {link.label}
                 </button>
-              </div>
+              </Link>
             ))}
           </div>
 
          {/* Dropdowns Container */}
-          <AnimatePresence>
-            {/* Product Dropdown */}
-            {hoveredLink === 'PRODUCT' && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 z-[1001] pt-4" // Added pt-4 to bridge the gap
-                onMouseEnter={() => setHoveredLink('PRODUCT')}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <ProductDropdwon />
-              </motion.div>
-            )}
-
-            {/* Customers Dropdown */}
-            {hoveredLink === 'CUSTOMERS' && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 z-[1001] pt-4" // Added pt-4 to bridge the gap
-                onMouseEnter={() => setHoveredLink('CUSTOMERS')}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <CustomerDropdown />
-              </motion.div>
-            )}
-
-            {/* Integrations Dropdown */}
-            {hoveredLink === 'INTEGRATIONS' && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 z-[1001] pt-4" // Added pt-4 to bridge the gap
-                onMouseEnter={() => setHoveredLink('INTEGRATIONS')} // Fixed: Changed 'CUSTOMERS' to 'INTEGRATIONS'
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                <IntegrationsDropdown/>
-              </motion.div>
-            )}
-          </AnimatePresence>
+         {/* Dropdowns Container */}
+<AnimatePresence>
+  {hoveredLink && (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="absolute top-full left-1/2 -translate-x-1/2 z-1001 pt-6"
+      onMouseEnter={() => setHoveredLink(hoveredLink)}
+      onMouseLeave={() => setHoveredLink(null)}
+    >
+      {hoveredLink === 'PRODUCT' && <ProductDropdwon />}
+      {hoveredLink === 'CUSTOMERS' && <CustomerDropdown />}
+      {hoveredLink === 'INTEGRATIONS' && <IntegrationsDropdown />}
+      {hoveredLink === 'RESOURCES' && <ResourcesDropdown />}
+      {hoveredLink === 'COMPANY' && <CompanyDropdown/>}
+    </motion.div>
+  )}
+</AnimatePresence>
 
           {/* Actions Section */}
           <div className="flex items-center gap-[1em] shrink-0">
