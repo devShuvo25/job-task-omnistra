@@ -31,7 +31,7 @@ pnpm dev
 # or
 bun dev
 ```
-buiil :
+build command :
 ```bash
 npm run build
 ```
